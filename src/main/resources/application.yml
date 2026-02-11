@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: delivery-api
+
+ #Configuração do Banco de Dados do PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/delivery_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgres.Driver
+
+  # JPA / Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: update # Cria/atualiza tabelas automaticamente
+      show-sql: true   # Mostra o SQL no console
+      properties:
+        hibernate:
+          format_sql: true # Formata o SQL para ficar mais legível
+          dialect: org.hibernate.dialect.PostgresSQLDialect   # Opcional, mais ajuda o hibernate a otimizar as queries
