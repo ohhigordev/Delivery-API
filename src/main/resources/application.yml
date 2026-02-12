@@ -2,12 +2,12 @@ spring:
   application:
     name: delivery-api
 
- #Configuração do Banco de Dados do PostgreSQL
+ #Configuracao do Banco de Dados do PostgreSQL
   datasource:
-    url: jdbc:postgresql://localhost:5432/delivery_db
+    url: jdbc:postgresql://localhost:5433/delivery_db
     username: postgres
     password: postgres
-    driver-class-name: org.postgres.Driver
+    driver-class-name: org.postgresql.Driver
 
   # JPA / Hibernate
   jpa:
@@ -16,5 +16,4 @@ spring:
       show-sql: true   # Mostra o SQL no console
       properties:
         hibernate:
-          format_sql: true # Formata o SQL para ficar mais legível
-          dialect: org.hibernate.dialect.PostgresSQLDialect   # Opcional, mais ajuda o hibernate a otimizar as queries
+          format_sql: true # Formata o SQL para ficar mais legï¿½vel
