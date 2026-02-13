@@ -1,0 +1,33 @@
+package delivery_api.models;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.ManyToAny;
+
+import java.math.BigDecimal;
+@Entity
+@Table(name = "tb_order_items")
+@Data
+public class OrdemItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Integer quantity;
+    private BigDecimal price; // Preço unitário no momento da compra
+
+    @ManyToAny
+    @JoinColumn(name = "order_id") // Nome da coluna estrangeira no postgres
+    private Order order;
+
+    @ManyToAny
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    // Método auxiliar para calcular o subtotal deste item
+    public BigDecimal getSubTotal(){
+        return price.multiply(new BigDecimal(quantity));
+    }
+}
+
