@@ -29,5 +29,5 @@ public class Order {
     // mappedBy: indica qual o campo na classe OrdemItem é o "dono" do relacionamento
     // cascade: se eu salva o Pedido, ele salva automaticamente os itens dentro dele
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrdemItem> items = new ArrayList<>();
+    private List<OrderItem> items = new ArrayList<>();
 }
