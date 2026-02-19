@@ -32,4 +32,27 @@ O projeto foi estruturado seguindo o padrão de camadas para garantir a separaç
 - **Cálculo Automático:** O sistema processa o subtotal de cada item e o total geral do pedido.
 
 ### 3. Gestão de Status (Máquina de Estados)
-- Controle de ciclo de vida do pedido
+- Controle de ciclo de vida do pedido: `PENDING`, `PREPARING`, `OUT_FOR_DELIVERY`, `DELIVERED`, `CANCELED`.
+- Atualizações parciais utilizando o método **PATCH**.
+
+### 4. Relatórios Financeiros (Business Intelligence)
+- Implementação de consultas customizadas com **JPQL**.
+- Endpoint de faturamento total baseado em pedidos entregues.
+
+## 🛡️ Desafios Superados (Showcase Técnico)
+
+Durante o desenvolvimento, implementamos soluções para desafios clássicos de APIs:
+- **Recursão Cíclica:** Resolvido o problema de loop infinito na serialização JSON entre `Order` e `OrderItem` utilizando `@JsonIgnore`.
+- **Atomicidade:** Uso de transações para garantir que um pedido só seja salvo se todos os seus itens forem processados com sucesso.
+- **Diferenciação DTO vs Entidade:** Proteção da camada de dados ao não expor entidades diretamente na requisição.
+
+## 📈 Como Executar
+
+1. Clone o repositório.
+2. Configure o seu `application.yml` com as credenciais do seu PostgreSQL local.
+3. Certifique-se de que o banco `delivery_db` existe.
+4. Execute a aplicação via IntelliJ ou terminal: `./mvnw spring-boot:run`.
+5. A API estará disponível em `http://localhost:8080`.
+
+---
+Desenvolvido por **Higor** 🚀
