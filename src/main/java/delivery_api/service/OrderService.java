@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,5 +50,18 @@ public class OrderService {
         order.setTotal(total);
 
         return orderRepository.save(order);
+    }
+
+    @Transactional
+    public Order updateStatus(Long id, OrderStatus newStatus) {
+        return null;
+    }
+
+    public List<Order> findOrderByStatus(OrderStatus status) {
+        return orderRepository.findByStatus(status);
+    }
+
+    public List<Order> findAll (){
+        return orderRepository.findAll();
     }
 }
