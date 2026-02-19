@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -37,6 +38,12 @@ public class OrderController {
     public ResponseEntity<Order> updateStatus(@PathVariable Long id,@RequestBody OrderStatus newStatus){
         Order updateOrder = service.updateStatus(id, newStatus);
         return ResponseEntity.ok(updateOrder);
+    }
+
+    @GetMapping("/revenue")
+    public ResponseEntity<BigDecimal> getRevenue(){
+        BigDecimal revenue = service.getRevenue();
+        return ResponseEntity.ok(revenue);
     }
 
 }

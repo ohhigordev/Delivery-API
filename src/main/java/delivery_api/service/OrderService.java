@@ -64,4 +64,10 @@ public class OrderService {
     public List<Order> findAll (){
         return orderRepository.findAll();
     }
+
+    public BigDecimal getRevenue(){
+        BigDecimal total = orderRepository.calculateTotalRevenue();
+
+        return total != null ? total : BigDecimal.ZERO;
+    }
 }
